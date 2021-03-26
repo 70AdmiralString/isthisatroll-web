@@ -1,0 +1,13 @@
+# Temporary files
+*~
+
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Database files
+*.sqlite3
+
+# Django files
+migrations/

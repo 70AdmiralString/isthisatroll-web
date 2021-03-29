@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils import timezone
-from django.views import generic
+from django.views import generic, View
 
 from .models import Redditor
 from .forms import SearchForm
@@ -20,16 +20,25 @@ class DetailView(generic.DetailView):
     model = Redditor
 
 
-def search(request):
+class SearchView(View):
     """
     The search page view, with form processing.
 
-    This function provides the view for the search page (which is
+    This class provides the view for the search page (which is
     also the homepage). It also provides the search form processing.
     """
 
+    form_class = SearchForm
+    template_name = 'user/search.html'
+    initial = {}
+
+    # if a GET request, render the search page
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form': form})
+
     # if a POST request, process the data and redirect to detail of user
-    if request.method == 'POST':
+    def post(self, request, *args, **kwargs):
         form = SearchForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -40,8 +49,4 @@ def search(request):
                                         result=0.1)
                 new_redditor.save()
             return HttpResponseRedirect(reverse('user:detail', args=(username,)))
-
-    else:
-        form = SearchForm()
-
-    return render(request, 'user/search.html', {'form': form})
+        return render(request, self.template_name, {'form': form})

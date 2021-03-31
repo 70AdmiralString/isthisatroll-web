@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils import timezone
@@ -18,6 +18,13 @@ class DetailView(generic.DetailView):
     """
 
     model = Redditor
+
+    def get(request, *args, **kwargs):
+        try:
+            response = super().get(request, *args, **kwargs)
+        except Http404:
+            response = HttpResponseRedirect(reverse('user:search'))
+        return response
 
 
 class SearchView(generic.edit.FormView):

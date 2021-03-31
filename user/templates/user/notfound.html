@@ -1,0 +1,6 @@
+User {{ form.username.initial }} is not in database.
+<form action=" {% url 'user:search' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>

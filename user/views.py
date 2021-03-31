@@ -19,11 +19,12 @@ class DetailView(generic.DetailView):
 
     model = Redditor
 
-    def get(request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         try:
             response = super().get(request, *args, **kwargs)
         except Http404:
-            response = HttpResponseRedirect(reverse('user:search'))
+            form = SearchForm(initial={'username': kwargs['pk']})
+            response = render(request, 'user/notfound.html', {'form': form})
         return response
 
 

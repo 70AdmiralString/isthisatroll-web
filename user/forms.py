@@ -1,9 +1,13 @@
-from django import forms
+from django.forms import ModelForm
+
+from .models import Redditor
 
 
-class SearchForm(forms.Form):
+class SearchForm(ModelForm):
     """
     A simple search form. The only entry is the username (pk of models.Redditor)
     """
 
-    username = forms.CharField(label="Username", max_length=20, min_length=3)
+    class Meta:
+        model = Redditor
+        fields = ['username',]

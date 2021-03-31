@@ -10,4 +10,4 @@ class SearchForm(ModelForm):
 
     class Meta:
         model = Redditor
-        fields = ['username',]
+        fields = ['username']

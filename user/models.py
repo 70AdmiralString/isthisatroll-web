@@ -7,7 +7,7 @@ class Redditor(models.Model):
         primary_key=True,
         max_length=20,
         validators=[RegexValidator(
-            regex=r'^[A-Za-z0-9\-\_]{3,20}',
+            regex=r'^[A-Za-z0-9\-\_]{3,20}$',
             message='Username must be between 3 and 20 alphanumeric characters, plus - and _.'
         )]
     )

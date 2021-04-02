@@ -13,3 +13,8 @@ class Redditor(models.Model):
     )
     analysis_date = models.DateTimeField('date analyzed')
     result = models.FloatField()
+
+    def __str__(self):
+        return f"""Username: {self.username}
+                 Date analyzed: {self.analysis_date}
+                 Result: {self.result}"""

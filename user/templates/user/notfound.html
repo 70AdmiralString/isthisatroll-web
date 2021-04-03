@@ -1,6 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} - {{ form.username.initial }} not found{% endblock title %}
+
+{% block content %}
 User {{ form.username.initial }} is not in database.
 <form action=" {% url 'user:search' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
+{% endblock content %}

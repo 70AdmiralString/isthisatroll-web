@@ -3,6 +3,7 @@
 {% block title %}{% endblock title %}
 
 {% block content %}
+{% block message %}{% endblock message %}
 <form action=" {% url 'user:search' %}" method="post">
     {% csrf_token %}
     {{ form }}

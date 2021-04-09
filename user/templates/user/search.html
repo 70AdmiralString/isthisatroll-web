@@ -3,10 +3,29 @@
 {% block title %}{% endblock title %}
 
 {% block content %}
-{% block message %}{% endblock message %}
-<form action=" {% url 'user:search' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+  <main class="container text-center mx-auto">
+    <form action=" {% url 'user:search' %}" method="post">
+      <div class="form-floating">
+        {% csrf_token %}
+      </div>
+      <div class="form-floating">
+         {% block message %}{% endblock message %}
+      </div>
+      <div class="form-floating">
+        {{ form.username.errors }}
+      </div>
+      <div class="form-floating">
+        <input type="text"
+               name="{{ form.username.name }}"
+               id="{{ form.username.id_for_label }}"
+               {% if form.username.value != None %}value="{{ form.username.value|stringformat:'s' }}"{% endif %}
+               maxlength="{{ form.username.field.max_length }}"
+               class="form-control"
+               placeholder="username"
+               {% if form.username.field.required %}required{% endif %}>
+        <label for="{{ form.username.id_for_label }}" class="hidden">Username</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary my-1" type="submit">Search</button>
+    </form>
+  </main>
 {% endblock content %}

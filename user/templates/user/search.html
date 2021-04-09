@@ -8,12 +8,19 @@
       <div class="form-floating">
         {% csrf_token %}
       </div>
+
       <div class="form-floating">
          {% block message %}{% endblock message %}
       </div>
+
+      {% if form.username.errors %}
       <div class="form-floating">
-        {{ form.username.errors }}
+        {% for error in form.username.errors %}
+          <div> {{ error }} </div>
+        {% endfor %}
       </div>
+      {% endif %}
+
       <div class="form-floating">
         <input type="text"
                name="{{ form.username.name }}"

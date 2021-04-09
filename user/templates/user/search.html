@@ -16,7 +16,7 @@
       {% if form.username.errors %}
       <div class="form-floating">
         {% for error in form.username.errors %}
-          <div> {{ error }} </div>
+          <div> {{ error|escape }} </div>
         {% endfor %}
       </div>
       {% endif %}

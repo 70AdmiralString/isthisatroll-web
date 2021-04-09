@@ -3,7 +3,7 @@
 {% block title %}{% endblock title %}
 
 {% block content %}
-  <main class="container text-center mx-auto">
+  <main class="container text-center w-100 mx-auto mb-5">
     <form action=" {% url 'user:search' %}" method="post">
       <div class="form-floating">
         {% csrf_token %}
@@ -30,7 +30,7 @@
                class="form-control"
                placeholder="username"
                {% if form.username.field.required %}required{% endif %}>
-        <label for="{{ form.username.id_for_label }}" class="hidden">Username</label>
+        <label for="{{ form.username.id_for_label }}" class="text-muted">Username</label>
       </div>
       <button class="w-100 btn btn-lg btn-primary my-1" type="submit">Search</button>
     </form>

@@ -19,6 +19,23 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-md fixed-top bg-transparent">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-dark h5" href="{% url 'user:search' %}">IsThisATroll?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-muted my-auto" target="_blank" href="https://github.com/70AdmiralString">70AdmiralString</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div id="content" class="mx-auto">
     <h1 class="display-2 text-center pb-5"> IsThisATroll? </h1>
     {% block content %}{% endblock content %}

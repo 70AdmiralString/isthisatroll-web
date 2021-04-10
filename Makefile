@@ -12,7 +12,10 @@ default:
 	@echo "Choose a target"
 
 install:
-	$(PIP) install -r requirements.txt
+	@$(PIP) install -r requirements.txt
+
+staticfiles:
+	@$(PYTHON) manage.py collectstatic
 
 linter:
 	@echo "=== Pycodestyle ==="
@@ -22,7 +25,7 @@ linter:
 	@echo "=== Done ==="
 
 test:
-	$(PYTHON) -Wall manage.py test
+	@$(PYTHON) -Wall manage.py test
 
 delete-db:
 	rm -f db.sqlite3

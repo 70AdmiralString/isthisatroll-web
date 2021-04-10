@@ -1,10 +1,10 @@
-# Is this a troll?
+# IsThisATroll?
 
 A website to spot trolls on Reddit using machine learning.
 
 ## Documentation
 
-
+See the [wiki](https://github.com/70AdmiralString/isthisatroll_web/wiki).
 
 ## Usage
 
@@ -29,6 +29,10 @@ Create the database:
 Create a superuser for database admin:
 
     make superuser
+
+Collect static files:
+
+    make staticfiles
 
 #### Linter and test
 

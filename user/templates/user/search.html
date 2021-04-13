@@ -3,7 +3,7 @@
 {% block title %}{% endblock title %}
 
 {% block content %}
-  <main class="container text-center w-100 mx-auto mb-5">
+  <div class="container text-center mx-auto mb-5">
     <form action=" {% url 'user:search' %}" method="post">
       <div class="form-floating">
         {% csrf_token %}
@@ -34,5 +34,5 @@
       </div>
       <button class="w-100 btn btn-lg btn-primary my-1" type="submit">Search</button>
     </form>
-  </main>
+  </div>
 {% endblock content %}

@@ -1,0 +1,14 @@
+/*
+Style for the redditor_detail template (redditor_detail.html).
+*/
+
+#redditor-analysis {
+  width: 50%;
+}
+
+/* sets a larger width if the screen is small (in width), for phones */
+@media (max-width: 800px) {
+  #redditor-analysis {
+    width: 80%;
+  }
+}

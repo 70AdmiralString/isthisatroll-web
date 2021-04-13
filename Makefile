@@ -14,7 +14,7 @@ default:
 install:
 	@$(PIP) install -r requirements.txt
 
-staticfiles:
+collectstatic:
 	@$(PYTHON) manage.py collectstatic
 
 linter:

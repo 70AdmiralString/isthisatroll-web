@@ -127,4 +127,4 @@ STATICFILES_DIRS = [
 
 
 # Configure Django for Heroku deployment
-django_on_heroku.settings(locals())
+# django_on_heroku.settings(locals())

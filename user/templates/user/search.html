@@ -1,5 +1,38 @@
-<form action=" {% url 'user:search' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+  <div class="container text-center mx-auto mb-5">
+    <form action=" {% url 'user:search' %}" method="post">
+      <div class="form-floating">
+        {% csrf_token %}
+      </div>
+
+      <div class="form-floating">
+         {% block message %}{% endblock message %}
+      </div>
+
+      {% if form.username.errors %}
+      <div class="form-floating">
+        {% for error in form.username.errors %}
+          <div> {{ error|escape }} </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="form-floating">
+        <input type="text"
+               name="{{ form.username.name }}"
+               id="{{ form.username.id_for_label }}"
+               {% if form.username.value != None %}value="{{ form.username.value|stringformat:'s' }}"{% endif %}
+               maxlength="{{ form.username.field.max_length }}"
+               class="form-control"
+               placeholder="username"
+               {% if form.username.field.required %}required{% endif %}>
+        <label for="{{ form.username.id_for_label }}" class="text-muted">Username</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary my-1" type="submit">Search</button>
+    </form>
+  </div>
+{% endblock content %}

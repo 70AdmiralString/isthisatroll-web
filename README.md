@@ -1,5 +1,4 @@
-# IsThisATroll?
-![master workflow](https://github.com/70AdmiralString/isthisatroll_web/actions/workflows/django.yml/badge.svg)
+# IsThisATroll? [![Build status](https://github.com/70AdmiralString/isthisatroll_web/actions/workflows/django.yml/badge.svg?branch=master)](https://github.com/70AdmiralString/isthisatroll_web/actions/workflows/django.yml?branch=master)
 
 A website to spot trolls on Reddit using machine learning.
 

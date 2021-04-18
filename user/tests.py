@@ -103,3 +103,18 @@ class SearchFormTest(TestCase):
             {'username': 'john milnor'}
         )
         self.assertFalse(form.is_valid())
+
+    def test_existing_redditor(self):
+        """
+        If the redditor is already in the database, the form is valid.
+        """
+        redditor = Redditor(
+            username='existing_redditor',
+            analysis_date=timezone.now(),
+            result=2.122
+        )
+        redditor.save()
+        form = SearchForm(
+            {'username': 'existing_redditor'}
+        )
+        self.assertTrue(form.is_valid())

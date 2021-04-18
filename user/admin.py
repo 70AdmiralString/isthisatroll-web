@@ -1,7 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
-
 from .models import Redditor
 
-admin.site.register(Redditor)
+
+@admin.register(Redditor)
+class RedditorAdmin(admin.ModelAdmin):
+    """ Settings for the Redditor table in admin page. """
+    list_display = ('username', 'analysis_date')
+    list_filter = ['analysis_date', 'result']
+    search_fields = ['username']

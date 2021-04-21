@@ -32,7 +32,7 @@ Create a superuser for database admin:
 
 Collect static files:
 
-    make staticfiles
+    make collectstatic
 
 #### Linter and test
 

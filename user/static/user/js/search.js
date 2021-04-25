@@ -12,8 +12,6 @@ $("form.needs-validation").validate({
 
 // Form validation: rules for each input element
 $("input.needs-validation").rules("add", {
-  minlength: 3,
-  maxlength: 20,
   pattern: "^[A-Za-z0-9\-\_]{3,20}$",
   messages: {
     pattern: "Should match ^[A-Za-z0-9\-\_]{3,20}$"

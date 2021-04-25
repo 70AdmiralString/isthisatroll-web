@@ -4,7 +4,9 @@ from django.core.validators import RegexValidator
 
 class Redditor(models.Model):
     class UsernameValidation:
-        regex = r'^[A-Za-z0-9\-\_]{3,20}$'
+        min_length = 3
+        max_length = 20
+        regex = r'^[A-Za-z0-9\-\_]{' + str(min_length) + r',' + str(max_length) + r'}$'
         message = 'Username must be between 3 and 20 alphanumeric characters, plus - and _.'
         validation = RegexValidator(
             regex=regex,
@@ -13,7 +15,7 @@ class Redditor(models.Model):
 
     username = models.CharField(
         primary_key=True,
-        max_length=20,
+        max_length=UsernameValidation.max_length,
         validators=[UsernameValidation.validation]
     )
     analysis_date = models.DateTimeField('date analyzed')

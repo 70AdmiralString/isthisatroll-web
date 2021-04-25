@@ -10,7 +10,14 @@ class SearchForm(Form):
 
     username = CharField(
         required=True,
-        min_length=3,
-        max_length=20,
+        min_length=Redditor.UsernameValidation.min_length,
+        max_length=Redditor.UsernameValidation.max_length,
         validators=[Redditor.UsernameValidation.validation]
     )
+
+    username.widget.attrs.update({
+        'class': 'form-control needs-validation',
+        'placeholder': 'username',
+        'data-validation-regex': Redditor.UsernameValidation.regex,
+        'data-validation-message': Redditor.UsernameValidation.message,
+    })

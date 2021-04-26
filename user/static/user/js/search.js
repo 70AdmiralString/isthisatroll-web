@@ -1,9 +1,10 @@
 // Extra JavaScript code for the search template (search.html)
+// Depends on: jQuery 3.6.0, jQuery validation plugin 1.19.3
 
 $(document).ready(
   function() {
 
-    // Form validation: overall validation
+    // Form validation: overall form validation settings
     $("form.needs-validation").validate({
       debug: true,
       errorClass: "is-invalid",
@@ -14,12 +15,16 @@ $(document).ready(
     });
 
     // Form validation: rules for each input element
-    $("input.needs-validation").rules("add", {
-      pattern: "^[A-Za-z0-9\-\_]{3,20}$",
-      messages: {
-        pattern: "Should match ^[A-Za-z0-9\-\_]{3,20}$"
+    $("input.needs-validation").each(
+      function() {
+        $(this).rules("add", {
+          pattern: $(this).attr('data-validation-regex'),
+          messages: {
+            pattern: $(this).attr('data-validation-message')
+          }
+        });
       }
-    });
+    );
 
   }
 )

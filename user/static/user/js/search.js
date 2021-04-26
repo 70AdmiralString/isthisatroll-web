@@ -6,7 +6,6 @@ $(document).ready(
 
     // Form validation: overall form validation settings
     $("form.needs-validation").validate({
-      debug: true,
       errorClass: "is-invalid",
       errorElement: "div",
       errorPlacement: function(error, element) {

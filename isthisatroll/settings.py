@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'gbt@q7g9hpusm6=$vh+ty9a4saw+37-2+ld%qe5j&bi5w#@=0b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ISTHISATROLL_ENV') == 'production':
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -126,5 +130,6 @@ STATICFILES_DIRS = [
 ]
 
 
-# Configure Django for Heroku deployment
-django_on_heroku.settings(locals())
+# Configure Django for production on Heroku
+if not DEBUG:
+    django_on_heroku.settings(locals())

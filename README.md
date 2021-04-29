@@ -30,10 +30,6 @@ Create a superuser for database admin:
 
     make superuser
 
-Collect static files:
-
-    make collectstatic
-
 #### Linter and test
 
     make linter
@@ -42,3 +38,7 @@ Collect static files:
 #### Server startup
 
     make server
+
+#### Deploy
+
+To deploy on Heroku, the `ISTHISATROLL_ENV` environment variable must be set to `production`.

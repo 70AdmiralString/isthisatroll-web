@@ -14,9 +14,6 @@ default:
 install:
 	@$(PIP) install -r requirements.txt
 
-collectstatic:
-	@$(PYTHON) manage.py collectstatic
-
 linter:
 	@echo "=== Pycodestyle ==="
 	@$(PYCODESTYLE) --max-line-length=180 $(SRC_FILES)

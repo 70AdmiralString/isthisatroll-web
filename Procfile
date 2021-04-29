@@ -1,3 +1,3 @@
-release: make migrate-db
+release: python manage.py migrate
 
 web: gunicorn isthisatroll.wsgi

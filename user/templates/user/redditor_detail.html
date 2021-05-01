@@ -2,25 +2,18 @@
 
 {% load static %}
 
-{% block header %}
-  <link rel="stylesheet" type="text/css" href="{% static 'user/css/detail.css' %}">
-{% endblock header %}
-
 {% block title %} - {{ form.username.initial }}{% endblock title %}
 
 {% block content %}
-  <div id="redditor-analysis" class="container mx-auto bg-light rounded">
+  <div class="container mx-auto bg-light rounded text-block">
     <div class="container p-3">
       <div class="row mb-3">
         <div class="col-7 text-right">
           <h1> {{ redditor.username }} </h1>
         </div>
-        <div class="col-5 my-auto text-muted small text-left">
+        <div class="col-5 my-auto text-muted small">
           {{ redditor.analysis_date }}
         </div>
-      </div>
-      <div class="row">
-
       </div>
       <div class="row">
         It is a troll with likelihood {{ redditor.result }} %.

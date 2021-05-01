@@ -5,15 +5,18 @@
 {% endblock title %}
 
 {% block content %}
-<div class="container bg-light rounded mx-auto">
+<div class="container bg-light rounded mx-auto p-3 text-block">
   <div class="row">
-    <h1 class="display-4 pt-5"><tt> 404 :( </tt></h1>
+    <h1 class="display-4 pt-4"><tt> 404 :( </tt></h1>
   </div>
   <div class="row">
-    <h2 class="pb-5"><tt> Page not found </tt></h2>
+    <h2><tt> Page not found </tt></h2>
   </div>
   <div class="row">
-    <a href="{% url 'home' %}" class="text-center mb-3 text-muted"> Let's go back home </a>
+    <tt class="pb-5"> We don't know if this is a troll. What we know is that this is not a page of our website. </tt>
+  </div>
+  <div class="row">
+    <a href="{% url 'home' %}" class="text-center mb-3 text-muted"> <tt> Let's go back to trolls </tt> </a>
   </div>
 </div>
 {% endblock content %}

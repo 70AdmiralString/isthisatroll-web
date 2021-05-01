@@ -27,8 +27,10 @@ SECRET_KEY = 'gbt@q7g9hpusm6=$vh+ty9a4saw+37-2+ld%qe5j&bi5w#@=0b'
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ISTHISATROLL_ENV') == 'production':
     DEBUG = False
+    print("WARNING: Debug mode is OFF.")
 else:
     DEBUG = True
+    print("WARNING: Debug mode is ON.")
 
 ALLOWED_HOSTS = []
 

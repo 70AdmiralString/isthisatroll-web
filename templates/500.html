@@ -5,18 +5,18 @@
 {% endblock title %}
 
 {% block content %}
-<div class="container bg-light rounded mx-auto">
+<div class="container bg-light rounded mx-auto text-block">
   <div class="row">
-    <h1 class="display-4 pt-5"><tt> 500 :( </tt></h1>
+    <h1 class="display-4 pt-4"><tt> 500 :( </tt></h1>
   </div>
   <div class="row">
     <h2><tt> Server error </tt></h2>
   </div>
   <div class="row">
-    <tt class="pb-5"> The admins have been notified. </tt>
+    <tt class="pb-5"> We are sorry, something went wrong. The admins have been notified. </tt>
   </div>
   <div class="row">
-    <a href="{% url 'home' %}" class="text-center mb-3 text-muted"> Let's go back home </a>
+    <a href="{% url 'home' %}" class="text-center mb-3 text-muted"> <tt> Let's go back to trolls </tt> </a>
   </div>
 </div>
 {% endblock content %}

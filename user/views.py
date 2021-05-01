@@ -48,17 +48,3 @@ class SearchView(generic.edit.FormView):
                                     result=0.1)
             new_redditor.save()
         return HttpResponseRedirect(reverse('user:detail', args=(username,)))
-
-
-def page_not_found(request, exception):
-    """View for error 404."""
-    response = render(request, '404.html')
-    response.status_code = 404
-    return response
-
-
-def server_error(request):
-    """View for error 500."""
-    response = render(request, '500.html')
-    response.status_code = 500
-    return response

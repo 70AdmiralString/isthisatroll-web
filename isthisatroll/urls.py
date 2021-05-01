@@ -23,3 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
 ]
+
+handler404 = 'user.views.page_not_found'
+handler500 = 'user.views.server_error'

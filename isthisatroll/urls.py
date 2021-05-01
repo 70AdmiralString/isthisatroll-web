@@ -20,10 +20,10 @@ from django.views.generic import TemplateView
 from user.views import SearchView
 
 urlpatterns = [
-    path('', SearchView.as_view(), name="home"),
+    path('', SearchView.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
-    path('about/', TemplateView.as_view(template_name='about.html'))
+    path('about/', TemplateView.as_view(template_name='about.html'), name='about')
 ]
 
 handler404 = 'user.views.page_not_found'

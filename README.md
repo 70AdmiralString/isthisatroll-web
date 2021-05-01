@@ -1,10 +1,10 @@
-# Is this a troll?
+# IsThisATroll? [![Build status](https://github.com/70AdmiralString/isthisatroll_web/actions/workflows/django.yml/badge.svg?branch=master)](https://github.com/70AdmiralString/isthisatroll_web/actions/workflows/django.yml?branch=master)
 
 A website to spot trolls on Reddit using machine learning.
 
 ## Documentation
 
-
+See the [wiki](https://github.com/70AdmiralString/isthisatroll_web/wiki).
 
 ## Usage
 
@@ -38,3 +38,7 @@ Create a superuser for database admin:
 #### Server startup
 
     make server
+
+#### Deploy
+
+To deploy on Heroku, the `ISTHISATROLL_ENV` environment variable must be set to `production`.

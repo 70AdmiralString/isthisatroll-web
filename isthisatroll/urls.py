@@ -14,8 +14,29 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from django.views.generic import TemplateView
+from django.shortcuts import render
+
+from user.views import SearchView
 
 urlpatterns = [
+    path('', SearchView.as_view(), name='home'),
     path('admin/', admin.site.urls),
+    path('user/', include('user.urls')),
+    path('about/', TemplateView.as_view(template_name='about.html'), name='about')
 ]
+
+
+def handler404(request, exception):
+    """View for error 404."""
+    response = render(request, '404.html')
+    response.status_code = 404
+    return response
+
+
+def handler500(request):
+    """View for error 500."""
+    response = render(request, '500.html')
+    response.status_code = 500
+    return response

@@ -1,0 +1,20 @@
+/*
+WARNING
+This stylesheet is deprecated: there is no #redditor-analysis id anymore.
+The functionalities of this stylesheet have been moved to the base stylesheet.
+The abovementioned id has been replaced by the class .text-block to make it
+useful for other items too (see e.g. the about page).
+
+Style for the redditor_detail template (redditor_detail.html).
+*/
+
+#redditor-analysis {
+  width: 50%;
+}
+
+/* sets a larger width if the screen is small (in width), for phones */
+@media (max-width: 800px) {
+  #redditor-analysis {
+    width: 80%;
+  }
+}

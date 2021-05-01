@@ -10,4 +10,4 @@ __pycache__/
 *.sqlite3
 
 # Django files
-migrations/
+staticfiles/

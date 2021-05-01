@@ -1,0 +1,25 @@
+/*
+Style for the base template (base.html). This applies to the overall website.
+*/
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+/*
+Style for large text blocks
+*/
+.text-block {
+  width: 50%;
+}
+
+/* sets a larger width if the screen is small (in width), for phones */
+@media (max-width: 800px) {
+  .text-block {
+    width: 80%;
+  }
+}

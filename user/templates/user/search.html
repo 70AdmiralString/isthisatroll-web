@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+  <div class="container text-center mx-auto mb-5">
+    <form action=" {% url 'user:search' %}" method="post" class="needs-validation">
+      <div class="form-floating">
+        {% csrf_token %}
+      </div>
+
+      <div id="errorBox" class="form-floating">
+         {% block message %}{% endblock message %}
+      </div>
+
+      {% if form.username.errors %}
+      <div class="form-floating">
+        {% for error in form.username.errors %}
+          <div> {{ error|escape }} </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="form-floating">
+        {{ form.username }}
+        <label for="{{ form.username.id_for_label }}" class="text-muted">Username</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary my-1" type="submit">Search</button>
+    </form>
+  </div>
+{% endblock content %}
+
+{% block extrajs %}
+  <!-- jQuery validation plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js" integrity="sha256-TAzGN4WNZQPLqSYvi+dXQMKehTYFoVOnveRqbi42frA=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+  <script src="{% static 'user/js/search.js' %}"></script>
+{% endblock extrajs %}

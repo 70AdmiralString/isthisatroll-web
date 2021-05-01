@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'gbt@q7g9hpusm6=$vh+ty9a4saw+37-2+ld%qe5j&bi5w#@=0b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ISTHISATROLL_ENV') == 'production':
+    DEBUG = False
+    print("WARNING: Debug mode is OFF.")
+else:
+    DEBUG = True
+    print("WARNING: Debug mode is ON.")
 
 ALLOWED_HOSTS = []
 
@@ -56,7 +62,7 @@ ROOT_URLCONF = 'isthisatroll.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'EST'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -121,6 +127,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
-# Configure Django for Heroku deployment
-# django_on_heroku.settings(locals())
+
+# Configure Django for production on Heroku
+if not DEBUG:
+    django_on_heroku.settings(locals())

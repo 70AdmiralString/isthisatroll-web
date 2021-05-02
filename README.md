@@ -8,7 +8,7 @@ Please see the [wiki](https://github.com/70AdmiralString/isthisatroll_web/wiki).
 
 ## Usage
 
-#### Dependencies
+### Dependencies
 
 `Python3` is required to run the code, `pip` is used to install all required Python modules, so make sure you have both installed before proceeding further. If you are on a Debian-based system, you can install them with
 
@@ -16,7 +16,7 @@ Please see the [wiki](https://github.com/70AdmiralString/isthisatroll_web/wiki).
 
 Running the app in a virtual environment is strongly suggested. If you are not familiar with virtual environments, please see [this guide](https://docs.python.org/3/tutorial/venv.html).
 
-#### Setup
+### Setup
 
 Install Python dependencies:
 
@@ -30,7 +30,7 @@ Create a superuser for database admin:
 
     make superuser
 
-#### Test and linter
+### Test and linter
 
 Always make sure that the code is passing all basic consistency tests:
 
@@ -40,7 +40,7 @@ It's also a good practice to respect some basic Python coding rules. You can che
 
     make linter
 
-#### Server startup
+### Server startup
 
 During development, you should generally run the server in development mode. To start the server in development mode use
 
@@ -56,6 +56,6 @@ This collects all static files and launches an instance of `gunicorn`.
 
 **Note:** the mock production server still uses the `SQLite` development database and not the `PostgreSQL` production database.
 
-#### Deployment
+### Deployment
 
 The `ISTHISATROLL_ENV` environment variable is used to decide whether to run the server in production mode or in development mode. When deploying the server it should be set to `production`.

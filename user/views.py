@@ -20,6 +20,7 @@ class DetailView(generic.DetailView):
     model = Redditor
 
     def get(self, request, *args, **kwargs):
+        """Handle 404 exception by redirecting to the prefilled search form."""
         try:
             response = super().get(request, *args, **kwargs)
         except Http404:
@@ -40,6 +41,7 @@ class SearchView(generic.edit.FormView):
     template_name = 'user/search.html'
 
     def form_valid(self, form):
+        """Handle form creating a new entry if user is not in database, redirecting otheriwse."""
         username = form.cleaned_data['username']
         # if the user is not already in the database, create a new entry
         if not Redditor.objects.filter(pk=username).exists():

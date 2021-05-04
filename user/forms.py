@@ -4,9 +4,7 @@ from .models import Redditor
 
 
 class SearchForm(Form):
-    """
-    A simple search form. The only entry is the username (pk of models.Redditor)
-    """
+    """A simple search form. The only entry is the username (pk of models.Redditor)."""
 
     username = CharField(
         required=True,

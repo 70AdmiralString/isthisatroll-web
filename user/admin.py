@@ -5,10 +5,12 @@ from .models import Redditor
 
 @admin.register(Redditor)
 class RedditorAdmin(admin.ModelAdmin):
-    """ Settings for the Redditor table in admin page. """
+    """Settings for the Redditor table in admin page."""
+
     list_display = ('username', 'analysis_date', 'result')
     list_filter = ['analysis_date', 'result']
     search_fields = ['username']
 
     def get_ordering(self, request):
+        """Return ordering of redditors by inverse analysis date."""
         return ['-analysis_date']

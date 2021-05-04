@@ -55,9 +55,11 @@ default:
 	@echo "$$QUICK_HELP"
 
 install:
+	@echo "$$ANNOUNCE_BODY"
 	@$(PIP) install -r requirements.txt
 
 linter:
+	@echo "$$ANNOUNCE_BODY"
 	@echo "=== Code consistency and style ==="
 	@echo "- Pycodestyle"
 	@$(PYCODESTYLE) --max-line-length=100 $(SRC_FILES)
@@ -69,12 +71,16 @@ linter:
 	@echo "=== Done ==="
 
 test:
+	@echo "$$ANNOUNCE_BODY"
 	@$(PYTHON) -Wall manage.py test
 
 delete-db:
+	@echo "$$ANNOUNCE_BODY"
 	@rm -f db.sqlite3
+	@echo "Development database deleted."
 
 migrate-db:
+	@echo "$$ANNOUNCE_BODY"
 	@$(PYTHON) manage.py makemigrations $(NOINPUT_OPT)
 	@$(PYTHON) manage.py migrate $(NOINPUT_OPT)
 
@@ -90,6 +96,7 @@ production-server:
 	@ISTHISATROLL_ENV=production gunicorn isthisatroll.wsgi
 
 superuser:
+	@echo "$$ANNOUNCE_BODY"
 	@$(PYTHON) manage.py createsuperuser
 
 help:
